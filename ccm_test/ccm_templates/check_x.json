@@ -1,0 +1,36 @@
+{
+  "brokers": ["/broker/{{.Broker}}"],
+  "config": {
+    "header_host":"{{.Target}}",
+    "http_version":"{{.ConfigHTTPVersion}}",
+    "method":"{{.ConfigMethod}}",
+    "payload":"{{.ConfigPayload}}",
+    "port":"{{.ConfigPort}}",
+    "read_limit":"{{.ConfigReadLimit}}",
+    "url":"http://{{.Target}}/jobs/update_filter.json",
+    "query":"{{.ConfigQuery}}"
+  },
+  "display_name": "{{.DisplayName}} {{.Target}}",
+  "notes": "{{.Notes}}",
+  "period": {{.Period}},
+  "tags": ["tag:tag1","tag:tag2"],
+  "target": "{{.Target}}",
+  "timeout": {{.Timeout}},
+  "type": "{{.Type}}",
+  "metrics": [
+      {
+        "status": "active",
+        "name": "latency",
+        "type": "numeric",
+        "units": null,
+        "tags" : ["metric_tag:metric_tag1","metric_tag:metric_tag2"]
+      },
+      {
+        "status": "active",
+        "name": "thruput",
+        "type": "numeric",
+        "units": null,
+        "tags": ["metric_tag:metric_tagx","metric_tag:metric_tagy"]
+      }
+]
+}

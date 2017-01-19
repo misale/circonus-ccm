@@ -1,0 +1,5 @@
+group_name : web_app
+members :
+  - web-lab-alfa.xyz.net
+  - web-lab-beta.xyz.net
+  - web-lab-gama.xyz.net

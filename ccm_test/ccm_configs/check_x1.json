@@ -1,0 +1,19 @@
+{
+  "host_group" : "web_app",
+  "template_file" : "check_x.json",
+  "broker" : "1289",
+  "display_name" : "web_stats",
+  "notes" : "notes",
+  "period": 120,
+  "target" : "",
+  "timeout" : 60,
+  "type" : "json",
+  "config_header_host":"",
+  "config_http_version":"1.1",
+  "config_method":"GET",
+  "config_payload":"",
+  "config_port":"80",
+  "config_read_limit":"0",
+  "config_url":"url",
+  "config_query":""
+}
