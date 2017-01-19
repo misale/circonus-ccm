@@ -97,7 +97,7 @@ ccm_test/
 ```
  - **ccm_test** : Config repo name. Repo should have sub-directories "ccm_configs", "ccm_hosts" and "ccm_templates". And tenant.yml file. 
 
- - **ccm_templates** : Contains list of JSON check template files that have "golang text/template" formatting for variable replacement. Strings with **"{{.Param}}"** 
+ - **ccm_templates** : Contains list of JSON check template files that have "[golang text/template](https://golang.org/pkg/text/template/)" formatting for variable replacement. Strings with **"{{.Param}}"** 
 format are template variables to be replaced by values from configuration files. Refer to the configuration-to-template key map table below for list of template variables.
 
 Example:
@@ -161,7 +161,7 @@ Example :
   "config_payload":"",
   "config_port":"80",
   "config_read_limit":"0",
-  "config_url":"/stats",
+  "config_url":"/stats.json",
   "config_query":""
 }
 ```
@@ -323,4 +323,5 @@ $
 - update/delete check_bundles based on changes in ccm config repo
 - detect metrics changes within check_bundle and update check_bundles
 - use uniform formatting for all ccm repo files - use YAML
+- add template variables to cover all check types
 
