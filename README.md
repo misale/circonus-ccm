@@ -273,8 +273,6 @@ class circonus_ccm {
 
 ```
 
-Example : 
-
 # 
 
 ### CCM flow
