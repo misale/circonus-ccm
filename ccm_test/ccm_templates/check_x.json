@@ -7,7 +7,7 @@
     "payload":"{{.ConfigPayload}}",
     "port":"{{.ConfigPort}}",
     "read_limit":"{{.ConfigReadLimit}}",
-    "url":"http://{{.Target}}/jobs/update_filter.json",
+    "url":"http://{{.Target}}/stats.json",
     "query":"{{.ConfigQuery}}"
   },
   "display_name": "{{.DisplayName}} {{.Target}}",
