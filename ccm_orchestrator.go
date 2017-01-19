@@ -1,10 +1,12 @@
+// Copyright 2017 Alem Abreha <alem.abreha@gmail.com>. All rights reserved.
+// Use of this source code is governed by a MIT license that can be found in the LICENSE file.
 package main
 
 import (
 	"encoding/json"
 	"flag"
-	"github.com/misale/circonus-ccm/ccm"
 	"github.com/misale/circonus-api-go/circonusapi"
+	"github.com/misale/circonus-ccm/ccm"
 	"log"
 	"os"
 )
