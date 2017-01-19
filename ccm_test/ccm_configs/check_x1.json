@@ -1,7 +1,7 @@
 {
   "host_group" : "web_app",
   "template_file" : "check_x.json",
-  "broker" : "1289",
+  "broker" : "9898",
   "display_name" : "web_stats",
   "notes" : "notes",
   "period": 120,
