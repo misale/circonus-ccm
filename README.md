@@ -111,7 +111,7 @@ Example:
     "payload":"{{.ConfigPayload}}",
     "port":"{{.ConfigPort}}",
     "read_limit":"{{.ConfigReadLimit}}",
-    "url":"http://{{.Target}}/jobs/update_filter.json",
+    "url":"http://{{.Target}}/stats.json",
     "query":"{{.ConfigQuery}}"
   },
   "display_name": "{{.DisplayName}} {{.Target}}",
@@ -245,8 +245,8 @@ class circonus_ccm {
         notify  => Exec['ccm_orchestrator'],
       }
   # hosts file
-  file {'/test/ccm_test/ccm_hosts/elemental_hosts.yml' :
-      source  => 'puppet:///modules/circonus_ccm/elemental_hosts.yml',
+  file {'/test/ccm_test/ccm_hosts/test_hosts.yml' :
+      source  => 'puppet:///modules/circonus_ccm/test_hosts.yml',
       require => File['/test/ccm_test/ccm_hosts'],
       notify  => Exec['ccm_orchestrator'],
     }
@@ -307,14 +307,14 @@ $ ccm_orchestrator -repo ccm_test/
 2017/01/08 23:14:20 loading template:    ccm_test//ccm_templates/check_x.json  for host:         web-lab-beta.xyz.net
 2017/01/08 23:14:20 loading template:    ccm_test//ccm_templates/check_x.json  for host:         web-lab-gama.xyz.net
 2017/01/08 23:14:20 inspecting check configuration
- {[/broker/1289] {web-lab-alfa.xyz.net 1.1 GET  80 0 http://web-lab-alfa.xyz.net/jobs/update_filter.json } elemental_stats web-lab-alfa.xyz.net notes 120 [tag:tag1 tag:tag2] web-lab-alfa.xyz.net 60 json [{active active numeric <nil> [metric_tag:metric_tag1 metric_tag:metric_tag2]} {active archived numeric <nil> [metric_tag:metric_tagx metric_tag:metric_tagy]}]}
+ {[/broker/9898] {web-lab-alfa.xyz.net 1.1 GET  80 0 http://web-lab-alfa.xyz.net/stats.json } web_stats web-lab-alfa.xyz.net notes 120 [tag:tag1 tag:tag2] web-lab-alfa.xyz.net 60 json [{active active numeric <nil> [metric_tag:metric_tag1 metric_tag:metric_tag2]} {active archived numeric <nil> [metric_tag:metric_tagx metric_tag:metric_tagy]}]}
 2017/01/08 23:14:20 inspecting check configuration
- {[/broker/1289] {web-lab-gama.xyz.net 1.1 GET  80 0 http://web-lab-gama.xyz.net/jobs/update_filter.json } elemental_stats web-lab-gama.xyz.net notes 120 [tag:tag1 tag:tag2] web-lab-gama.xyz.net 60 json [{active active numeric <nil> [metric_tag:metric_tag1 metric_tag:metric_tag2]} {active archived numeric <nil> [metric_tag:metric_tagx metric_tag:metric_tagy]}]}
+ {[/broker/9898] {web-lab-gama.xyz.net 1.1 GET  80 0 http://web-lab-gama.xyz.net/stats.json } web_stats web-lab-gama.xyz.net notes 120 [tag:tag1 tag:tag2] web-lab-gama.xyz.net 60 json [{active active numeric <nil> [metric_tag:metric_tag1 metric_tag:metric_tag2]} {active archived numeric <nil> [metric_tag:metric_tagx metric_tag:metric_tagy]}]}
 2017/01/08 23:14:20 inspecting check configuration
- {[/broker/1289] {web-lab-beta.xyz.net 1.1 GET  80 0 http://web-lab-beta.xyz.net/jobs/update_filter.json } elemental_stats web-lab-beta.xyz.net notes 120 [tag:tag1 tag:tag2] web-lab-beta.xyz.net 60 json [{active active numeric <nil> [metric_tag:metric_tag1 metric_tag:metric_tag2]} {active archived numeric <nil> [metric_tag:metric_tagx metric_tag:metric_tagy]}]}
-2017/01/08 23:14:20 existing check detected for :  web-lab-alfa.xyz.net        type:    json   display_name:    elemental_stats web-lab-alfa.xyz.net
-2017/01/08 23:14:20 existing check detected for :  web-lab-beta.xyz.net        type:    json   display_name:    elemental_stats web-lab-beta.xyz.net
-2017/01/08 23:14:21 existing check detected for :  web-lab-gama.xyz.net        type:    json   display_name:    elemental_stats web-lab-gama.xyz.net
+ {[/broker/9898] {web-lab-beta.xyz.net 1.1 GET  80 0 http://web-lab-beta.xyz.net/stats.json } web_stats web-lab-beta.xyz.net notes 120 [tag:tag1 tag:tag2] web-lab-beta.xyz.net 60 json [{active active numeric <nil> [metric_tag:metric_tag1 metric_tag:metric_tag2]} {active archived numeric <nil> [metric_tag:metric_tagx metric_tag:metric_tagy]}]}
+2017/01/08 23:14:20 existing check detected for :  web-lab-alfa.xyz.net        type:    json   display_name:    web_stats web-lab-alfa.xyz.net
+2017/01/08 23:14:20 existing check detected for :  web-lab-beta.xyz.net        type:    json   display_name:    web_stats web-lab-beta.xyz.net
+2017/01/08 23:14:21 existing check detected for :  web-lab-gama.xyz.net        type:    json   display_name:    web_stats web-lab-gama.xyz.net
 $ 
 ```
 #
