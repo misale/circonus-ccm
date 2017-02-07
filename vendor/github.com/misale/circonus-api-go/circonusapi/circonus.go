@@ -83,9 +83,7 @@ func GetData(filter DataFilter) (interface{}, error) {
 
 // CreateCns function takes []byte payload and object_url string, returns []byte
 func CreateCns(payload []byte, object_url string) ([]byte, error) {
-
-	URL := CirconusURL + object_url
-
+	URL := os.Getenv("CIRCONUS_API_URL") + object_url
 	result, err := CirconusCall(URL, "POST", payload)
 
 	if err != nil {
@@ -102,7 +100,7 @@ func CreateCns(payload []byte, object_url string) ([]byte, error) {
 // DeleteCns function takes oid string and object_url string, returns []byte
 func DeleteCns(oid string, object_url string) ([]byte, error) {
 
-	URL := CirconusURL + object_url + "/" + oid
+	URL := os.Getenv("CIRCONUS_API_URL") + object_url + "/" + oid
 
 	result, err := CirconusCall(URL, "DELETE", nil)
 
@@ -120,7 +118,7 @@ func DeleteCns(oid string, object_url string) ([]byte, error) {
 // UpdateCns function takes oid string, object_url string, payload []byte and returns []byte
 func UpdateCns(oid string, object_url string, payload []byte) ([]byte, error) {
 
-	URL := CirconusURL + object_url + "/" + custom_url.QueryEscape(oid)
+	URL := os.Getenv("CIRCONUS_API_URL") + object_url + "/" + custom_url.QueryEscape(oid)
 
 	result, err := CirconusCall(URL, "PUT", payload)
 
@@ -138,7 +136,7 @@ func UpdateCns(oid string, object_url string, payload []byte) ([]byte, error) {
 // UpdateTemplate function takes oid string, object_url string, host_removal_action string, bundle_removal_action and payload []byte and returns []byte
 func UpdateTemplate(oid string, object_url string, host_removal_action string, bundle_removal_action string, payload []byte) ([]byte, error) {
 
-	URL := CirconusURL + object_url + "/" + oid + "?"
+	URL := os.Getenv("CIRCONUS_API_URL") + object_url + "/" + oid + "?"
 
 	if host_removal_action != "" {
 		URL += "host_removal_action=" + host_removal_action + "&"
@@ -181,8 +179,9 @@ func CirconusCall(url string, method string, payload []byte) ([]byte, error) {
 // UrlMaker function generates the URL string for CirconusCall depending on the API object type
 // thats is being queried.
 func UrlMaker(item string, filter interface{}) (string, error) {
-
 	var url string
+
+	CirconusURL := os.Getenv("CIRCONUS_API_URL")
 	switch strings.ToLower(item) {
 
 	case "account":

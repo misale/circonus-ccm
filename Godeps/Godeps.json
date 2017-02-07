@@ -5,7 +5,7 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/misale/circonus-api-go/circonusapi",
-			"Rev": "788d05c66752910a5cf286097dddb132ffd7afca"
+			"Rev": "454a7f6190908bb63d948fc09050bb2cac9c0f1c"
 		},
 		{
 			"ImportPath": "gopkg.in/yaml.v2",

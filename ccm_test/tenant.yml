@@ -1,4 +1,4 @@
 # tenant : circonus account config file
-circonus_api_token : 4e79ff58-6b94-603f-f64f-9b2761a7ffff
+circonus_api_token : fac1234ff7-345f-afda-ffff-abcf12325f
 circonus_app_name : tenantx
 circonus_api_url : https://api.circonus.com/v2/
